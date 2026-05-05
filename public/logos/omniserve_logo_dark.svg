@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <defs>
+    <!-- Gradient for top cylinder - bright blue -->
+    <linearGradient id="osd_cylTopBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="50%" stop-color="#64B5F6"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
+    </linearGradient>
+    <linearGradient id="osd_cylTopCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#90CAF9"/>
+      <stop offset="50%" stop-color="#BBDEFB"/>
+      <stop offset="100%" stop-color="#64B5F6"/>
+    </linearGradient>
+    <!-- Gradient for left cylinder -->
+    <linearGradient id="osd_cylLeftBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="50%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="osd_cylLeftCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64B5F6"/>
+      <stop offset="50%" stop-color="#90CAF9"/>
+      <stop offset="100%" stop-color="#42A5F5"/>
+    </linearGradient>
+    <!-- Gradient for right cylinder -->
+    <linearGradient id="osd_cylRightBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="50%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1976D2"/>
+    </linearGradient>
+    <linearGradient id="osd_cylRightCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64B5F6"/>
+      <stop offset="50%" stop-color="#90CAF9"/>
+      <stop offset="100%" stop-color="#42A5F5"/>
+    </linearGradient>
+    <!-- Gradient for bottom cylinder - teal -->
+    <linearGradient id="osd_cylBottomBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00897B"/>
+      <stop offset="50%" stop-color="#26A69A"/>
+      <stop offset="100%" stop-color="#00695C"/>
+    </linearGradient>
+    <linearGradient id="osd_cylBottomCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4DB6AC"/>
+      <stop offset="50%" stop-color="#80CBC4"/>
+      <stop offset="100%" stop-color="#26A69A"/>
+    </linearGradient>
+    <!-- Diagonal node gradients -->
+    <linearGradient id="osd_cylTopLeftBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2196F3"/>
+      <stop offset="50%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="osd_cylTopLeftCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64B5F6"/>
+      <stop offset="50%" stop-color="#90CAF9"/>
+      <stop offset="100%" stop-color="#42A5F5"/>
+    </linearGradient>
+    <linearGradient id="osd_cylTopRightBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1976D2"/>
+      <stop offset="50%" stop-color="#2196F3"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="osd_cylTopRightCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="50%" stop-color="#64B5F6"/>
+      <stop offset="100%" stop-color="#2196F3"/>
+    </linearGradient>
+    <linearGradient id="osd_cylBottomLeftBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00897B"/>
+      <stop offset="50%" stop-color="#009688"/>
+      <stop offset="100%" stop-color="#00796B"/>
+    </linearGradient>
+    <linearGradient id="osd_cylBottomLeftCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4DB6AC"/>
+      <stop offset="50%" stop-color="#80CBC4"/>
+      <stop offset="100%" stop-color="#26A69A"/>
+    </linearGradient>
+    <linearGradient id="osd_cylBottomRightBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00796B"/>
+      <stop offset="50%" stop-color="#00897B"/>
+      <stop offset="100%" stop-color="#00695C"/>
+    </linearGradient>
+    <linearGradient id="osd_cylBottomRightCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#26A69A"/>
+      <stop offset="50%" stop-color="#4DB6AC"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <!-- Line gradients -->
+    <linearGradient id="osd_lineGradTop" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#64B5F6"/>
+    </linearGradient>
+    <linearGradient id="osd_lineGradLeft" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
+    </linearGradient>
+    <linearGradient id="osd_lineGradRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
+    </linearGradient>
+    <linearGradient id="osd_lineGradBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#26A69A"/>
+    </linearGradient>
+    <linearGradient id="osd_lineGradTopLeft" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#2196F3"/>
+    </linearGradient>
+    <linearGradient id="osd_lineGradTopRight" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1976D2"/>
+    </linearGradient>
+    <linearGradient id="osd_lineGradBottomLeft" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <linearGradient id="osd_lineGradBottomRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <!-- Center hub gradient -->
+    <radialGradient id="osd_hubGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#64B5F6"/>
+      <stop offset="60%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
+    </radialGradient>
+    <linearGradient id="osd_hubRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#26A69A"/>
+    </linearGradient>
+    <!-- Glow filter -->
+    <filter id="osd_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- ===== SYMBOL (positioned on the left) ===== -->
+  <g transform="translate(20, 25) scale(0.88)">
+    <!-- Connecting lines from center hub to 8 nodes -->
+    <!-- Cardinal lines -->
+    <line x1="200" y1="155" x2="200" y2="90" stroke="url(#osd_lineGradTop)" stroke-width="8" stroke-linecap="round" filter="url(#osd_glow)"/>
+    <line x1="155" y1="200" x2="80" y2="200" stroke="url(#osd_lineGradLeft)" stroke-width="8" stroke-linecap="round" filter="url(#osd_glow)"/>
+    <line x1="245" y1="200" x2="320" y2="200" stroke="url(#osd_lineGradRight)" stroke-width="8" stroke-linecap="round" filter="url(#osd_glow)"/>
+    <line x1="200" y1="245" x2="200" y2="310" stroke="url(#osd_lineGradBottom)" stroke-width="8" stroke-linecap="round" filter="url(#osd_glow)"/>
+    <!-- Diagonal lines -->
+    <line x1="168" y1="168" x2="115" y2="115" stroke="url(#osd_lineGradTopLeft)" stroke-width="6" stroke-linecap="round" filter="url(#osd_glow)"/>
+    <line x1="232" y1="168" x2="285" y2="115" stroke="url(#osd_lineGradTopRight)" stroke-width="6" stroke-linecap="round" filter="url(#osd_glow)"/>
+    <line x1="168" y1="232" x2="115" y2="285" stroke="url(#osd_lineGradBottomLeft)" stroke-width="6" stroke-linecap="round" filter="url(#osd_glow)"/>
+    <line x1="232" y1="232" x2="285" y2="285" stroke="url(#osd_lineGradBottomRight)" stroke-width="6" stroke-linecap="round" filter="url(#osd_glow)"/>
+
+    <!-- Center hub -->
+    <circle cx="200" cy="200" r="48" fill="none" stroke="url(#osd_hubRingGrad)" stroke-width="5" filter="url(#osd_glow)"/>
+    <circle cx="200" cy="200" r="35" fill="url(#osd_hubGrad)" filter="url(#osd_glow)"/>
+    <!-- Inner diamond in center -->
+    <polygon points="200,178 222,200 200,222 178,200" fill="none" stroke="#BBDEFB" stroke-width="2.5"/>
+    <polygon points="200,186 214,200 200,214 186,200" fill="#64B5F6"/>
+
+    <!-- Top cylinder (cardinal) -->
+    <g transform="translate(200, 65)">
+      <ellipse cx="0" cy="18" rx="24" ry="9" fill="#1565C0"/>
+      <rect x="-24" y="-2" width="48" height="20" fill="url(#osd_cylTopBody)"/>
+      <ellipse cx="0" cy="-2" rx="24" ry="9" fill="url(#osd_cylTopCap)"/>
+    </g>
+
+    <!-- Left cylinder (cardinal) -->
+    <g transform="translate(60, 200)">
+      <ellipse cx="0" cy="18" rx="24" ry="9" fill="#0D47A1"/>
+      <rect x="-24" y="-2" width="48" height="20" fill="url(#osd_cylLeftBody)"/>
+      <ellipse cx="0" cy="-2" rx="24" ry="9" fill="url(#osd_cylLeftCap)"/>
+    </g>
+
+    <!-- Right cylinder (cardinal) -->
+    <g transform="translate(340, 200)">
+      <ellipse cx="0" cy="18" rx="24" ry="9" fill="#0D47A1"/>
+      <rect x="-24" y="-2" width="48" height="20" fill="url(#osd_cylRightBody)"/>
+      <ellipse cx="0" cy="-2" rx="24" ry="9" fill="url(#osd_cylRightCap)"/>
+    </g>
+
+    <!-- Bottom cylinder (cardinal - teal) -->
+    <g transform="translate(200, 325)">
+      <ellipse cx="0" cy="18" rx="24" ry="9" fill="#004D40"/>
+      <rect x="-24" y="-2" width="48" height="20" fill="url(#osd_cylBottomBody)"/>
+      <ellipse cx="0" cy="-2" rx="24" ry="9" fill="url(#osd_cylBottomCap)"/>
+    </g>
+
+    <!-- Top-Left cylinder (diagonal) -->
+    <g transform="translate(100, 100)">
+      <ellipse cx="0" cy="14" rx="20" ry="7" fill="#1565C0"/>
+      <rect x="-20" y="-2" width="40" height="16" fill="url(#osd_cylTopLeftBody)"/>
+      <ellipse cx="0" cy="-2" rx="20" ry="7" fill="url(#osd_cylTopLeftCap)"/>
+    </g>
+
+    <!-- Top-Right cylinder (diagonal) -->
+    <g transform="translate(300, 100)">
+      <ellipse cx="0" cy="14" rx="20" ry="7" fill="#1565C0"/>
+      <rect x="-20" y="-2" width="40" height="16" fill="url(#osd_cylTopRightBody)"/>
+      <ellipse cx="0" cy="-2" rx="20" ry="7" fill="url(#osd_cylTopRightCap)"/>
+    </g>
+
+    <!-- Bottom-Left cylinder (diagonal - teal) -->
+    <g transform="translate(100, 290)">
+      <ellipse cx="0" cy="14" rx="20" ry="7" fill="#004D40"/>
+      <rect x="-20" y="-2" width="40" height="16" fill="url(#osd_cylBottomLeftBody)"/>
+      <ellipse cx="0" cy="-2" rx="20" ry="7" fill="url(#osd_cylBottomLeftCap)"/>
+    </g>
+
+    <!-- Bottom-Right cylinder (diagonal - teal) -->
+    <g transform="translate(300, 290)">
+      <ellipse cx="0" cy="14" rx="20" ry="7" fill="#004D40"/>
+      <rect x="-20" y="-2" width="40" height="16" fill="url(#osd_cylBottomRightBody)"/>
+      <ellipse cx="0" cy="-2" rx="20" ry="7" fill="url(#osd_cylBottomRightCap)"/>
+    </g>
+  </g>
+
+  <!-- ===== TEXT (white for dark background) ===== -->
+  <!-- "OmniServe" - large bold text -->
+  <text x="390" y="190" font-family="'Nunito', 'Comfortaa', 'Quicksand', Arial, sans-serif" font-size="88" font-weight="800" fill="#FFFFFF" letter-spacing="-1">OmniServe</text>
+  
+  <!-- "UNIFIED OPERATIONS PLATFORM" - spaced out -->
+  <text x="393" y="245" font-family="'Nunito', 'Comfortaa', 'Quicksand', Arial, sans-serif" font-size="26" font-weight="600" fill="#FFFFFF" letter-spacing="3">UNIFIED OPERATIONS PLATFORM</text>
+  
+  <!-- "Connect. Automate. Comply." - tagline -->
+  <text x="393" y="290" font-family="'Nunito', 'Comfortaa', 'Quicksand', Arial, sans-serif" font-size="24" font-weight="400" fill="#4DB6AC" letter-spacing="1">Connect. Automate. Comply.</text>
+</svg>

@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased text-navy;
+    line-height: 1.5;
+  }
+
+  img {
+    @apply max-w-full block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+  }
+
+  ul {
+    list-style: none;
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-24 px-6;
+  }
+
+  .section--dark {
+    @apply bg-navy text-white;
+  }
+
+  .section--muted {
+    @apply bg-[#F5F8FF];
+  }
+
+  .section__header {
+    @apply text-center mb-16;
+  }
+
+  .section__tag {
+    @apply inline-block text-[13px] font-semibold tracking-[0.08em] uppercase text-blue-600 mb-3;
+  }
+
+  .section--dark .section__tag {
+    @apply text-teal-400;
+  }
+
+  .section__title {
+    @apply text-[clamp(28px,4vw,44px)] font-bold leading-tight mb-4;
+  }
+
+  .section__subtitle {
+    @apply text-lg text-[#526A96] max-w-[640px] mx-auto;
+  }
+
+  .section--dark .section__subtitle {
+    @apply text-blue-200;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 py-[14px] px-7 rounded-[6px] text-[15px] font-semibold
+           transition-all duration-[250ms] whitespace-nowrap cursor-pointer;
+  }
+
+  .btn--primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 hover:-translate-y-px
+           hover:shadow-[0_8px_24px_rgba(37,99,235,0.35)];
+  }
+
+  .btn--outline-white {
+    @apply bg-transparent text-white border-2 border-white/30
+           hover:border-white hover:bg-white/[0.14];
+  }
+}
