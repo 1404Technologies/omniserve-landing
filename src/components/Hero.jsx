@@ -7,20 +7,6 @@ const dashboardStats = [
   { value: "SOC 2", label: "GDPR & HIPAA" },
 ];
 
-function ComingSoonButton({ label }) {
-  return (
-    <div className="relative group">
-      <span className="btn btn--outline-white opacity-60 cursor-not-allowed select-none">
-        {label}
-      </span>
-      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-[6px] bg-navy-2 border border-white/[0.15] text-white text-[12px] font-semibold rounded-[6px] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none">
-        Coming soon
-        <span className="absolute top-full left-1/2 -translate-x-1/2 border-[5px] border-transparent border-t-navy-2" />
-      </div>
-    </div>
-  );
-}
-
 export default function Hero({ tag, subheadline, cta, ctaSecondary, badges }) {
   return (
     <section className="min-h-screen flex items-center bg-navy text-white relative overflow-hidden py-[120px] px-6 pb-20">
@@ -43,7 +29,7 @@ export default function Hero({ tag, subheadline, cta, ctaSecondary, badges }) {
           <p className="text-lg text-blue-300 leading-[1.7] mb-10 max-w-[520px]">{subheadline}</p>
           <div className="flex gap-4 flex-wrap mb-12">
             <a href="#contact" className="btn btn--primary">{cta} →</a>
-            <ComingSoonButton label={ctaSecondary} />
+            <a href="#features" className="btn btn--outline-white">{ctaSecondary} →</a>
           </div>
           <div className="flex gap-3 flex-wrap">
             {badges.map((badge) => (

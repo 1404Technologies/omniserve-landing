@@ -7,9 +7,9 @@ export const hero = {
   tag: "A product by 1404 Technologies",
   headline: "One Platform. Total Operational Control.",
   subheadline:
-    "OmniServe unifies workflow orchestration, performance intelligence, and smart procurement in a single platform — giving every team one place to manage projects, quality, and spend.",
+    "Unify workflow, performance, and procurement in one platform — built for teams that need clarity, not complexity.",
   cta: "Get Early Access",
-  ctaSecondary: "Start Free Trial",
+  ctaSecondary: "Explore the Platform",
   badges: ["SOC 2 Type II", "GDPR Compliant", "HIPAA Ready"],
 };
 
@@ -121,6 +121,7 @@ export const pricing = [
     service: "OmniServe",
     model: "Per user / month",
     rate: "£99 – £599",
+    rateNote: "Rate varies by modules selected and team size — contact us for a tailored quote.",
     highlight: true,
   },
 ];
@@ -151,6 +152,18 @@ export const testimonials = [
     author: "Martin",
     role: "CEO, Reliance Health UK",
   },
+  {
+    quote:
+      "The procurement module alone saved us 12 hours a week in admin. Having quotes, approvals, and purchase orders in one workflow was a game-changer for our ops team.",
+    author: "Sarah K.",
+    role: "Operations Director, BPO Solutions Ltd",
+  },
+  {
+    quote:
+      "We passed our first HIPAA audit without a single remediation item. OmniServe's compliance engine flagged every gap before the auditors even arrived.",
+    author: "James O.",
+    role: "Compliance Manager, CareFirst UK",
+  },
 ];
 
 export const caseStudies = [
@@ -160,7 +173,25 @@ export const caseStudies = [
     challenge: "GDPR compliance gaps and manual reporting spread across disconnected systems",
     impact: [
       "70% reduction in compliance reporting time",
-      "Zero non-compliance flags in HIPAA audit",
+      "Zero non-compliance flags in first HIPAA audit",
+    ],
+  },
+  {
+    client: "Business Process Outsourcer",
+    location: "Nigeria",
+    challenge: "Project delivery delays and no real-time visibility into team performance across 200+ staff",
+    impact: [
+      "40% improvement in on-time project delivery",
+      "Client satisfaction scores up 28% in 3 months",
+    ],
+  },
+  {
+    client: "Professional Services Firm",
+    location: "U.S.",
+    challenge: "Fragmented vendor management and missing approval controls led to spiralling procurement spend",
+    impact: [
+      "£180k annual savings from vendor consolidation",
+      "Approval cycle cut from 9 days to under 24 hours",
     ],
   },
 ];
@@ -168,7 +199,7 @@ export const caseStudies = [
 export const whyChoose = [
   { stat: "3-in-1", label: "Workflow, performance & procurement in one platform" },
   { stat: "Unified", label: "Single dashboard across all modules and teams" },
-  { stat: "AI", label: "Powered quality analysis and coaching intelligence" },
+  { stat: "AI-First", label: "Quality analysis and coaching intelligence built in" },
   { stat: "iOS & Android", label: "Native mobile apps for field and remote teams" },
   { stat: "API-first", label: "Pre-built integrations and a public API" },
   { stat: "SOC 2", label: "GDPR & HIPAA compliance built in" },

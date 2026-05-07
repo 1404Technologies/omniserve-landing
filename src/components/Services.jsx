@@ -44,7 +44,7 @@ function ServiceCard({ number, title, description, highlights, differentiators, 
           </div>
         </div>
       </div>
-      <div className="bg-teal-500/[0.15] border border-teal-500/[0.25] rounded-[6px] py-4 px-5 whitespace-nowrap self-center">
+      <div className="bg-teal-500/[0.15] border border-teal-500/[0.25] rounded-[6px] py-4 px-5 self-start lg:self-center min-w-[160px]">
         <div className="text-[12px] text-[#7BAAC8] uppercase tracking-[0.05em] mb-1">Key benefit</div>
         <div className="text-[13px] font-semibold text-teal-400">{benefit}</div>
       </div>

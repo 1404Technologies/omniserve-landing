@@ -29,7 +29,19 @@ export default function Pricing({ rows, discounts, includes }) {
               <div className="text-[52px] font-extrabold text-white leading-none tracking-[-0.04em] mb-2">
                 {plan.rate}
               </div>
-              <div className="text-[14px] text-[#7BAAC8]">{plan.model}</div>
+              <div className="text-[14px] text-[#7BAAC8] mb-2">{plan.model}</div>
+              {plan.rateNote && (
+                <div className="text-[12px] text-[#7BAAC8] leading-normal">
+                  {plan.rateNote.split("contact us").map((part, i) =>
+                    i === 0 ? part : (
+                      <span key={i}>
+                        <a href="#contact" className="text-teal-400 hover:underline">contact us</a>
+                        {part}
+                      </span>
+                    )
+                  )}
+                </div>
+              )}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-[10px] mb-10">

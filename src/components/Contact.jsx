@@ -15,25 +15,65 @@ const serviceOptions = [
   "Module A: Workflow Orchestration",
   "Module B: Performance Intelligence",
   "Module C: Smart Procurement",
-  "Enterprise / Custom",
 ];
 
 const inputClass =
-  "bg-white/[0.11] border border-white/[0.18] rounded-[6px] py-3 px-4 text-[13px] text-white " +
+  "bg-white/[0.11] border rounded-[6px] py-3 px-4 text-[13px] text-white " +
   "placeholder:text-[#7BAAC8] focus:border-teal-500 focus:outline-none w-full transition-colors duration-150";
 
 const emptyForm = { name: "", email: "", company: "", service: "", message: "" };
 
+function FieldWrapper({ label, error, children }) {
+  return (
+    <div className="flex flex-col gap-[6px]">
+      <label className="text-[13px] font-semibold text-blue-200">{label}</label>
+      {children}
+      {error && (
+        <span className="text-[12px] text-red-400">{error}</span>
+      )}
+    </div>
+  );
+}
+
+function fieldError(name, value) {
+  if (name === "name" && !value.trim()) return "Name is required";
+  if (name === "email") {
+    if (!value.trim()) return "Email is required";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Enter a valid email address";
+  }
+  return null;
+}
+
 export default function Contact({ website, email, phones, offices }) {
   const [form, setForm] = useState(emptyForm);
-  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+  const [status, setStatus] = useState("idle");
+  const [touched, setTouched] = useState({});
+  const [fieldErrors, setFieldErrors] = useState({});
 
   function handleChange(e) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (touched[name]) {
+      setFieldErrors((prev) => ({ ...prev, [name]: fieldError(name, value) }));
+    }
+  }
+
+  function handleBlur(e) {
+    const { name, value } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    setFieldErrors((prev) => ({ ...prev, [name]: fieldError(name, value) }));
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+    const allTouched = Object.fromEntries(Object.keys(emptyForm).map((k) => [k, true]));
+    const errors = Object.fromEntries(
+      Object.entries(form).map(([k, v]) => [k, fieldError(k, v)])
+    );
+    setTouched(allTouched);
+    setFieldErrors(errors);
+    if (Object.values(errors).some(Boolean)) return;
+
     setStatus("submitting");
     try {
       await addDoc(collection(db, "omniserve_earlyaccess_requests"), {
@@ -44,6 +84,13 @@ export default function Contact({ website, email, phones, offices }) {
     } catch {
       setStatus("error");
     }
+  }
+
+  function resetForm() {
+    setForm(emptyForm);
+    setTouched({});
+    setFieldErrors({});
+    setStatus("idle");
   }
 
   return (
@@ -91,7 +138,13 @@ export default function Contact({ website, email, phones, offices }) {
             <div className="text-center py-10">
               <div className="text-[48px] mb-4">✓</div>
               <div className="text-[20px] font-bold text-white mb-2">Message received!</div>
-              <div className="text-[14px] text-[#9ca3af]">We'll be in touch within one business day.</div>
+              <div className="text-[14px] text-[#9ca3af] mb-8">We'll be in touch within one business day.</div>
+              <button
+                onClick={resetForm}
+                className="btn btn--outline-white text-[13px] py-[10px] px-5"
+              >
+                Send another enquiry
+              </button>
             </div>
           ) : (
             <>
@@ -99,67 +152,66 @@ export default function Contact({ website, email, phones, offices }) {
                 <div className="text-xl font-bold text-white mb-1">Get in touch</div>
                 <div className="text-[13px] text-blue-300">We respond within one business day.</div>
               </div>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} noValidate>
                 <div className="flex flex-col gap-4">
-                  <div className="flex flex-col gap-[6px]">
-                    <label className="text-[13px] font-semibold text-blue-200">Full name</label>
+                  <FieldWrapper label="Full name" error={fieldErrors.name}>
                     <input
-                      className={inputClass}
+                      className={`${inputClass} ${fieldErrors.name ? "border-red-400/60" : "border-white/[0.18]"}`}
                       type="text"
                       name="name"
                       value={form.name}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       placeholder="Jane Smith"
-                      required
                     />
-                  </div>
-                  <div className="flex flex-col gap-[6px]">
-                    <label className="text-[13px] font-semibold text-blue-200">Work email</label>
+                  </FieldWrapper>
+                  <FieldWrapper label="Work email" error={fieldErrors.email}>
                     <input
-                      className={inputClass}
+                      className={`${inputClass} ${fieldErrors.email ? "border-red-400/60" : "border-white/[0.18]"}`}
                       type="email"
                       name="email"
                       value={form.email}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       placeholder="jane@company.com"
-                      required
                     />
-                  </div>
-                  <div className="flex flex-col gap-[6px]">
-                    <label className="text-[13px] font-semibold text-blue-200">Company</label>
+                  </FieldWrapper>
+                  <FieldWrapper label="Company" error={fieldErrors.company}>
                     <input
-                      className={inputClass}
+                      className={`${inputClass} border-white/[0.18]`}
                       type="text"
                       name="company"
                       value={form.company}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       placeholder="Acme Corp"
                     />
-                  </div>
-                  <div className="flex flex-col gap-[6px]">
-                    <label className="text-[13px] font-semibold text-blue-200">Service of interest</label>
+                  </FieldWrapper>
+                  <FieldWrapper label="Service of interest" error={fieldErrors.service}>
                     <select
-                      className={inputClass}
+                      className={`${inputClass} border-white/[0.18]`}
                       name="service"
                       value={form.service}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                     >
                       <option value="" className="bg-navy-2 text-white">Select a service…</option>
                       {serviceOptions.map((opt) => (
                         <option key={opt} value={opt} className="bg-navy-2 text-white">{opt}</option>
                       ))}
+                      <option value="Enterprise / Custom" className="bg-navy-2 text-white">Enterprise / Custom — let's talk</option>
                     </select>
-                  </div>
-                  <div className="flex flex-col gap-[6px]">
-                    <label className="text-[13px] font-semibold text-blue-200">Message</label>
+                  </FieldWrapper>
+                  <FieldWrapper label="Message" error={fieldErrors.message}>
                     <textarea
-                      className={`${inputClass} resize-y min-h-[100px]`}
+                      className={`${inputClass} border-white/[0.18] resize-y min-h-[100px]`}
                       name="message"
                       value={form.message}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       placeholder="Tell us about your needs…"
                     />
-                  </div>
+                  </FieldWrapper>
                   {status === "error" && (
                     <div className="text-[13px] text-red-400">
                       Something went wrong — please try again or email us directly.
