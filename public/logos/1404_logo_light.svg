@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <defs>
+    <!-- Gradient for top cylinder - blue -->
+    <linearGradient id="l_cylTopBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="50%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="l_cylTopCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64B5F6"/>
+      <stop offset="50%" stop-color="#90CAF9"/>
+      <stop offset="100%" stop-color="#42A5F5"/>
+    </linearGradient>
+    <!-- Gradient for left cylinder -->
+    <linearGradient id="l_cylLeftBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="50%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#0D47A1"/>
+    </linearGradient>
+    <linearGradient id="l_cylLeftCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="50%" stop-color="#64B5F6"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
+    </linearGradient>
+    <!-- Gradient for right cylinder -->
+    <linearGradient id="l_cylRightBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1976D2"/>
+      <stop offset="50%" stop-color="#2196F3"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="l_cylRightCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="50%" stop-color="#64B5F6"/>
+      <stop offset="100%" stop-color="#2196F3"/>
+    </linearGradient>
+    <!-- Gradient for bottom cylinder - teal -->
+    <linearGradient id="l_cylBottomBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00796B"/>
+      <stop offset="50%" stop-color="#00897B"/>
+      <stop offset="100%" stop-color="#004D40"/>
+    </linearGradient>
+    <linearGradient id="l_cylBottomCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#26A69A"/>
+      <stop offset="50%" stop-color="#4DB6AC"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <!-- Line gradients -->
+    <linearGradient id="l_lineGradTopLeft" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <linearGradient id="l_lineGradTopRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="l_lineGradBottomLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <linearGradient id="l_lineGradBottomRight" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <!-- Center diamond gradient -->
+    <linearGradient id="l_centerDiamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- ===== SYMBOL (positioned on the left) ===== -->
+  <g transform="translate(30, 30) scale(0.85)">
+    <!-- Connecting lines forming diamond shape -->
+    <line x1="200" y1="105" x2="100" y2="200" stroke="url(#l_lineGradTopLeft)" stroke-width="10" stroke-linecap="round"/>
+    <line x1="200" y1="105" x2="300" y2="200" stroke="url(#l_lineGradTopRight)" stroke-width="10" stroke-linecap="round"/>
+    <line x1="100" y1="200" x2="200" y2="295" stroke="url(#l_lineGradBottomLeft)" stroke-width="10" stroke-linecap="round"/>
+    <line x1="300" y1="200" x2="200" y2="295" stroke="url(#l_lineGradBottomRight)" stroke-width="10" stroke-linecap="round"/>
+    
+    <!-- Inner cross lines to center -->
+    <line x1="200" y1="130" x2="200" y2="180" stroke="#1E88E5" stroke-width="6" stroke-linecap="round"/>
+    <line x1="130" y1="200" x2="180" y2="200" stroke="#1565C0" stroke-width="6" stroke-linecap="round"/>
+    <line x1="220" y1="200" x2="270" y2="200" stroke="#1976D2" stroke-width="6" stroke-linecap="round"/>
+    <line x1="200" y1="220" x2="200" y2="270" stroke="#00897B" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Center diamond shape -->
+    <polygon points="200,172 228,200 200,228 172,200" fill="none" stroke="url(#l_centerDiamondGrad)" stroke-width="5"/>
+    <polygon points="200,183 217,200 200,217 183,200" fill="#0A1F3D"/>
+
+    <!-- Top cylinder -->
+    <g transform="translate(200, 80)">
+      <ellipse cx="0" cy="22" rx="30" ry="11" fill="#0D47A1"/>
+      <rect x="-30" y="-2" width="60" height="24" fill="url(#l_cylTopBody)"/>
+      <ellipse cx="0" cy="-2" rx="30" ry="11" fill="url(#l_cylTopCap)"/>
+    </g>
+
+    <!-- Left cylinder -->
+    <g transform="translate(80, 200)">
+      <ellipse cx="0" cy="22" rx="30" ry="11" fill="#0D47A1"/>
+      <rect x="-30" y="-2" width="60" height="24" fill="url(#l_cylLeftBody)"/>
+      <ellipse cx="0" cy="-2" rx="30" ry="11" fill="url(#l_cylLeftCap)"/>
+    </g>
+
+    <!-- Right cylinder -->
+    <g transform="translate(320, 200)">
+      <ellipse cx="0" cy="22" rx="30" ry="11" fill="#0D47A1"/>
+      <rect x="-30" y="-2" width="60" height="24" fill="url(#l_cylRightBody)"/>
+      <ellipse cx="0" cy="-2" rx="30" ry="11" fill="url(#l_cylRightCap)"/>
+    </g>
+
+    <!-- Bottom cylinder -->
+    <g transform="translate(200, 295)">
+      <ellipse cx="0" cy="22" rx="30" ry="11" fill="#004D40"/>
+      <rect x="-30" y="-2" width="60" height="24" fill="url(#l_cylBottomBody)"/>
+      <ellipse cx="0" cy="-2" rx="30" ry="11" fill="url(#l_cylBottomCap)"/>
+    </g>
+  </g>
+
+  <!-- ===== TEXT ===== -->
+  <!-- "1404" - large bold text -->
+  <text x="420" y="195" font-family="'Nunito', 'Comfortaa', 'Quicksand', Arial, sans-serif" font-size="140" font-weight="800" fill="#0A1F3D" letter-spacing="-2">1404</text>
+  
+  <!-- "TECHNOLOGIES" - spaced out -->
+  <text x="423" y="260" font-family="'Nunito', 'Comfortaa', 'Quicksand', Arial, sans-serif" font-size="48" font-weight="600" fill="#0A1F3D" letter-spacing="8">TECHNOLOGIES</text>
+  
+  <!-- "Powering the Intelligent Edge" - tagline -->
+  <text x="423" y="310" font-family="'Nunito', 'Comfortaa', 'Quicksand', Arial, sans-serif" font-size="28" font-weight="400" fill="#00897B" letter-spacing="1">Powering the Intelligent Edge</text>
+</svg>

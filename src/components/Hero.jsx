@@ -1,90 +1,194 @@
-const integrations = ["Slack", "Teams", "Salesforce", "QuickBooks", "Xero", "Jira"];
+const CERT_TONE = {
+  teal: { dot: "bg-teal-500", ring: "ring-teal-400/50" },
+  blue: { dot: "bg-blue-500", ring: "ring-blue-400/50" },
+  amber: { dot: "bg-amber-500", ring: "ring-amber-400/55" },
+  violet: { dot: "bg-violet-500", ring: "ring-violet-400/50" },
+};
 
-const dashboardStats = [
-  { value: "3", label: "Platform modules", accent: true },
-  { value: "AI", label: "Performance intelligence" },
-  { value: "iOS & Android", label: "Mobile apps", accent: true },
-  { value: "SOC 2", label: "GDPR & HIPAA" },
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-[12px] h-[12px]">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+function CertPill({ label, color }) {
+  const tone = CERT_TONE[color] ?? CERT_TONE.blue;
+  return (
+    <span className={`inline-flex items-center gap-2 bg-white/[0.05] border border-white/[0.10] rounded-full pl-[6px] pr-4 py-[5px] ring-1 ${tone.ring}`}>
+      <span className={`flex items-center justify-center w-5 h-5 rounded-full text-white ${tone.dot}`}>
+        <CheckIcon />
+      </span>
+      <span className="text-[12px] font-semibold text-white">{label}</span>
+    </span>
+  );
+}
+
+const NODES = [
+  { label: "Salesforce", logo: "/logos/integrations/salesforce.svg", x: 50, y: 10, anchor: "bottom", delay: "0.0s" },
+  { label: "QuickBooks", logo: "/logos/integrations/quickbooks.svg", x: 78, y: 32, anchor: "left", delay: "0.4s" },
+  { label: "MS Project", logo: "/logos/integrations/ms-project.svg", x: 68, y: 88, anchor: "top", delay: "0.8s" },
+  { label: "Trello", logo: "/logos/integrations/trello.svg", x: 32, y: 88, anchor: "top", delay: "1.2s" },
+  { label: "Xero", logo: "/logos/integrations/xero.svg", x: 22, y: 32, anchor: "right", delay: "0.6s" },
 ];
 
-export default function Hero({ tag, subheadline, cta, ctaSecondary, badges }) {
+const ANCHOR_CLASSES = {
+  bottom: "-translate-x-1/2 -translate-y-full",
+  top: "-translate-x-1/2",
+  left: "-translate-y-1/2",
+  right: "-translate-x-full -translate-y-1/2",
+};
+
+const FLOAT_AXIS = {
+  bottom: "float-x",
+  top: "float-x",
+  left: "float-y",
+  right: "float-y",
+};
+
+function IntegrationChip({ label, logo, x, y, anchor, delay }) {
   return (
-    <section className="min-h-screen flex items-center bg-navy text-white relative overflow-hidden py-[120px] px-6 pb-20">
+    <div
+      className={`absolute z-10 ${ANCHOR_CLASSES[anchor]}`}
+      style={{ left: `${x}%`, top: `${y}%` }}
+    >
+      <div style={{ animation: `${FLOAT_AXIS[anchor]} 5.5s ease-in-out ${delay} infinite` }}>
+        <div className="bg-white rounded-[10px] pt-3 pb-[10px] px-4 flex flex-col items-center gap-[6px] shadow-[0_10px_30px_rgba(0,0,0,0.35),0_2px_6px_rgba(0,0,0,0.25)] ring-1 ring-black/[0.04] min-w-[96px]">
+          <img src={logo} alt="" className="w-7 h-7 object-contain" />
+          <span className="text-[12px] font-semibold text-navy whitespace-nowrap leading-none">{label}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HubVisual() {
+  return (
+    <div className="relative w-full aspect-square max-w-[540px] mx-auto">
       <div
-        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        className="absolute inset-[8%] rounded-full"
         style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 60% 40%, rgba(37,99,235,0.14) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 20% 80%, rgba(13,148,136,0.08) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(20,184,166,0.18) 0%, rgba(37,99,235,0.10) 40%, transparent 70%)",
+          filter: "blur(20px)",
         }}
       />
 
-      <div className="max-w-[1200px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-20 items-center relative">
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          {NODES.map(({ x, y, label }) => (
+            <linearGradient
+              key={label + "-grad"}
+              id={`line-${label.replace(/\s+/g, "")}`}
+              gradientUnits="userSpaceOnUse"
+              x1="50"
+              y1="50"
+              x2={x}
+              y2={y}
+            >
+              <stop offset="0%" stopColor="#5EEAD4" stopOpacity="0.10" />
+              <stop offset="100%" stopColor="#5EEAD4" stopOpacity="0.70" />
+            </linearGradient>
+          ))}
+        </defs>
+        {NODES.map(({ x, y, label }) => (
+          <line
+            key={label + "-line"}
+            x1="50"
+            y1="50"
+            x2={x}
+            y2={y}
+            stroke={`url(#line-${label.replace(/\s+/g, "")})`}
+            strokeWidth="0.7"
+            strokeLinecap="round"
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
+      </svg>
+
+      <div className="absolute inset-[24%] rounded-full border border-white/[0.10] pointer-events-none" />
+      <div className="absolute inset-[12%] rounded-full border border-white/[0.05] pointer-events-none" />
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+        <div className="relative">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -m-10 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(20,184,166,0.45) 0%, rgba(20,184,166,0.15) 35%, transparent 70%)",
+              filter: "blur(8px)",
+              animation: "pulse-glow 4s ease-in-out infinite",
+            }}
+          />
+          <img
+            src="/logos/omniserve_symbol_dark.svg"
+            alt="OmniServe"
+            className="relative w-[120px] h-[120px] drop-shadow-[0_12px_28px_rgba(0,0,0,0.45)]"
+          />
+        </div>
+      </div>
+
+      {NODES.map((node) => (
+        <IntegrationChip key={node.label} {...node} />
+      ))}
+    </div>
+  );
+}
+
+export default function Hero({ tag, headline, headlineAccent, subheadline, cta, ctaSecondary, certifications }) {
+  return (
+    <section className="bg-navy text-white relative overflow-hidden pt-[120px] pb-20 px-6">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 78% 30%, rgba(20,184,166,0.13) 0%, transparent 65%), radial-gradient(ellipse 55% 45% at 10% 75%, rgba(37,99,235,0.16) 0%, transparent 60%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none opacity-[0.18]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(ellipse 60% 60% at 50% 40%, black 0%, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 60% 60% at 50% 40%, black 0%, transparent 75%)",
+        }}
+      />
+
+      <div className="max-w-[1240px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] gap-12 lg:gap-16 items-center relative">
         <div>
-          <div className="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.12em] uppercase text-teal-400 bg-teal-400/[0.20] border border-teal-400/[0.35] py-[6px] px-[14px] rounded-full mb-6">
+          <div className="inline-flex items-center gap-[10px] text-[11px] font-semibold tracking-[0.14em] uppercase text-teal-300 bg-teal-400/[0.10] border border-teal-400/[0.30] py-[7px] pl-[10px] pr-4 rounded-full mb-7">
+            <span className="w-[6px] h-[6px] rounded-full bg-teal-300" />
             {tag}
           </div>
-          <h1 className="text-[clamp(36px,5vw,60px)] font-extrabold leading-tight tracking-[-0.03em] mb-6">
-            One Platform. <em className="not-italic text-teal-400">Total Operational Control.</em>
+          <h1 className="text-[clamp(34px,4.4vw,52px)] font-bold leading-[1.08] tracking-[-0.02em] mb-6">
+            {headline}
+            <br />
+            <span className="text-teal-300 font-semibold">{headlineAccent}</span>
           </h1>
-          <p className="text-lg text-blue-300 leading-[1.7] mb-10 max-w-[520px]">{subheadline}</p>
-          <div className="flex gap-4 flex-wrap mb-12">
-            <a href="#contact" className="btn btn--primary">{cta} →</a>
-            <a href="#features" className="btn btn--outline-white">{ctaSecondary} →</a>
-          </div>
-          <div className="flex gap-3 flex-wrap">
-            {badges.map((badge) => (
-              <span
-                key={badge}
-                className="flex items-center gap-[6px] text-[13px] font-medium text-blue-200
-                           before:content-['✓'] before:text-teal-400 before:font-bold"
-              >
-                {badge}
-              </span>
+          <p className="text-[16px] text-blue-200 leading-[1.7] mb-8 max-w-[520px]">{subheadline}</p>
+
+          <div id="compliance" className="flex flex-wrap gap-2 mb-8 scroll-mt-24">
+            {certifications.map(({ label, color }) => (
+              <CertPill key={label} label={label} color={color} />
             ))}
+          </div>
+
+          <div className="flex gap-3 flex-wrap">
+            <a href="#contact" className="btn btn--primary">{cta} →</a>
+            <a href="#features" className="btn btn--outline-white">{ctaSecondary}</a>
           </div>
         </div>
 
-        <div className="flex justify-center items-center order-first lg:order-last">
-          <div className="bg-navy-3 border border-white/[0.14] rounded-2xl p-7 w-full max-w-[460px] lg:max-w-[460px] shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-[10px] h-[10px] rounded-full bg-[#ff5f57]" />
-              <span className="w-[10px] h-[10px] rounded-full bg-[#ffbd2e]" />
-              <span className="w-[10px] h-[10px] rounded-full bg-[#28ca41]" />
-              <span className="text-[13px] text-blue-200 ml-2">OmniServe — Unified Dashboard</span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 mb-5">
-              {dashboardStats.map(({ value, label, accent }) => (
-                <div key={label} className="bg-white/[0.15] border border-white/[0.24] rounded-[10px] p-4">
-                  <div className={`text-[26px] font-bold leading-none mb-1 ${accent ? "text-teal-400" : "text-white"}`}>
-                    {value}
-                  </div>
-                  <div className="text-[12px] text-blue-200 uppercase tracking-[0.05em]">{label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-white/[0.15] border border-white/[0.24] rounded-[10px] p-4 mb-3">
-              <div className="text-[12px] text-blue-200 uppercase tracking-[0.05em] mb-3">Connected tools</div>
-              <div className="flex flex-wrap gap-[6px]">
-                {integrations.map((name) => (
-                  <span
-                    key={name}
-                    className="text-[12px] font-semibold text-teal-400 bg-teal-400/[0.15] border border-teal-400/[0.25] py-1 px-[10px] rounded-full"
-                  >
-                    {name}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex items-center gap-[10px] bg-emerald-600/[0.08] border border-emerald-600/[0.15] rounded-[10px] py-3 px-4">
-              <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0 animate-pulse" />
-              <span className="text-[12px] text-blue-50">
-                <strong className="text-emerald-600">All systems operational</strong> — 0 compliance flags
-              </span>
-            </div>
-          </div>
+        <div className="order-first lg:order-last">
+          <HubVisual />
         </div>
       </div>
     </section>

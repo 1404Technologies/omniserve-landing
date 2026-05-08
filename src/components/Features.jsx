@@ -39,11 +39,11 @@ const ICONS = {
   ),
 };
 
-function FeatureIcon({ name }) {
+function FeatureIcon({ name, large }) {
   return (
-    <div className="w-11 h-11 rounded-xl bg-teal-50 flex items-center justify-center mb-5">
+    <div className={`flex items-center justify-center rounded-[10px] bg-blue-50 ${large ? "w-12 h-12" : "w-10 h-10"}`}>
       <svg
-        className="w-5 h-5 text-blue-600"
+        className={`text-blue-700 ${large ? "w-[22px] h-[22px]" : "w-[18px] h-[18px]"}`}
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -55,29 +55,48 @@ function FeatureIcon({ name }) {
   );
 }
 
-function FeatureCard({ iconName, title, description }) {
+function HeroFeatureCard({ iconName, title, description }) {
   return (
-    <div className="bg-white border border-blue-100 rounded-[10px] p-8 transition-all duration-[250ms] hover:shadow-md hover:-translate-y-0.5">
+    <article className="card p-9 flex flex-col gap-5 lg:row-span-2 relative overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="absolute -right-20 -top-20 w-[280px] h-[280px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 70%)" }}
+      />
+      <FeatureIcon name={iconName} large />
+      <h3 className="text-[22px] font-bold text-ink leading-[1.2] tracking-[-0.01em]">{title}</h3>
+      <p className="text-[15px] text-ink-soft leading-[1.65]">{description}</p>
+    </article>
+  );
+}
+
+function CompactFeatureCard({ iconName, title, description }) {
+  return (
+    <article className="card p-7 flex gap-5 items-start hover:shadow-card-lift hover:-translate-y-px transition-all duration-200">
       <FeatureIcon name={iconName} />
-      <h3 className="text-[17px] font-bold text-navy mb-[10px]">{title}</h3>
-      <p className="text-[15px] text-[#526A96] leading-normal">{description}</p>
-    </div>
+      <div>
+        <h3 className="text-[15px] font-semibold text-ink mb-2">{title}</h3>
+        <p className="text-[14px] text-ink-soft leading-[1.55]">{description}</p>
+      </div>
+    </article>
   );
 }
 
 export default function Features({ items }) {
+  const [hero, ...rest] = items;
   return (
-    <section id="features" className="section section--muted">
+    <section id="features" className="section bg-white">
       <div className="section__header">
-        <span className="section__tag">Platform Features</span>
-        <h2 className="section__title">Everything your business needs, unified</h2>
+        <span className="section__tag">What it does</span>
+        <h2 className="section__title">Everything your business runs on, in one hub.</h2>
         <p className="section__subtitle">
-          Stop switching between tools. OmniServe brings your entire operation into one intelligent hub.
+          OmniServe replaces disconnected tools with a single source of truth.
         </p>
       </div>
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.map((feature) => (
-          <FeatureCard key={feature.title} {...feature} />
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5 auto-rows-[1fr]">
+        <HeroFeatureCard {...hero} />
+        {rest.map((feature) => (
+          <CompactFeatureCard key={feature.title} {...feature} />
         ))}
       </div>
     </section>

@@ -1,127 +1,111 @@
 export const nav = {
   brand: "OmniServe",
-  links: ["Features", "Modules", "Pricing", "Testimonials", "Contact"],
+  links: ["Features", "Industries", "Pricing", "Compliance", "Contact"],
+};
+
+export const parent = {
+  name: "1404 Technologies",
+  url: "https://www.1404technologies.com",
+  logo: "/logos/1404_logo_light.svg",
 };
 
 export const hero = {
   tag: "A product by 1404 Technologies",
-  headline: "One Platform. Total Operational Control.",
+  headline: "Run your operations from one intelligent hub.",
+  headlineAccent: "Audit-ready by default.",
   subheadline:
-    "Unify workflow, performance, and procurement in one platform — built for teams that need clarity, not complexity.",
+    "OmniServe eliminates software sprawl and connects your business tools — from project management and CRM to accounting and compliance — in one intelligent hub. Built for UK and U.S. SMEs.",
   cta: "Get Early Access",
-  ctaSecondary: "Explore the Platform",
-  badges: ["SOC 2 Type II", "GDPR Compliant", "HIPAA Ready"],
+  ctaSecondary: "See how it works",
 };
 
 export const stats = [
-  { value: "Three Core Modules", label: "Workflow, Performance & Procurement" },
-  { value: "AI-Powered Analytics", label: "Quality analysis & coaching intelligence" },
-  { value: "Native Mobile Apps", label: "iOS & Android for every team" },
-  { value: "Enterprise Security", label: "SOC 2 Type II · GDPR · HIPAA ready" },
+  { value: "50+", label: "Pre-built integrations" },
+  { value: "Up to 5 hrs", label: "Saved per user per week" },
+  { value: "3", label: "Industry modules" },
+  { value: "Audit-ready", label: "MTD · HIPAA · GDPR" },
 ];
+
+export const integrations = {
+  caption: "Universal integration layer with Xero, QuickBooks, Salesforce, Trello, MS Project, and 50+ more.",
+  items: ["Xero", "QuickBooks", "Salesforce", "Trello", "MS Project", "+ 50 more"],
+};
 
 export const features = [
   {
-    iconName: "bolt",
-    title: "Workflow Orchestration",
+    iconName: "link",
+    title: "Universal integration layer",
     description:
-      "Projects, tasks, resources, and timelines in one place — with Kanban boards, time tracking, automated triggers, and client portals.",
+      "Pre-built connectors for Xero, QuickBooks, Salesforce, Trello, MS Project, and 50+ more — keep working in the tools you already use.",
+  },
+  {
+    iconName: "bolt",
+    title: "No-code workflow automation",
+    description:
+      "Automate workflows across project management, CRM, accounting, and compliance — without engineering.",
   },
   {
     iconName: "chart",
-    title: "Performance Intelligence",
+    title: "Unified dashboards",
     description:
-      "Quality scorecards, feedback capture, and AI-powered sentiment analysis — with real-time dashboards, coaching alerts, and compliance tracking.",
+      "Real-time cross-system dashboards combining operational and financial data into one view.",
   },
   {
     iconName: "card",
-    title: "Smart Procurement",
+    title: "SaaS management",
     description:
-      "Vendor catalog, quote builder, approval workflows, and purchase order generation — with live order tracking and renewal management.",
-  },
-  {
-    iconName: "link",
-    title: "Unified Dashboard",
-    description:
-      "A single executive view across all modules — role-based, drill-down, and fully customisable with predictive analytics and cross-module insights.",
+      "Discover and optimize subscriptions. Reduce SaaS waste by identifying unused licenses.",
   },
   {
     iconName: "building",
-    title: "Integrations Hub",
+    title: "Industry modules",
     description:
-      "Pre-built connectors to Slack, Microsoft Teams, Salesforce, QuickBooks, Xero, Jira, Asana, and more — plus a public API for custom builds.",
-  },
-  {
-    iconName: "shield",
-    title: "Enterprise Security",
-    description:
-      "SSO (SAML/OAuth), role-based access control, audit logs, encryption at rest and in transit — with SOC 2 Type II, GDPR, and HIPAA compliance.",
+      "Tailored modules for Construction, Logistics, and Healthcare. Connect field teams to office systems in real time.",
   },
 ];
 
-export const services = [
+export const industries = [
   {
-    number: "A",
-    title: "Workflow Orchestration",
+    title: "Healthcare",
     description:
-      "Deliver projects on time with full visibility over tasks, resources, and timelines. Built for teams that need structure without complexity.",
+      "Compliance engine with audit trails and MTD, HIPAA, and GDPR support.",
     highlights: [
-      "Project & task management (Kanban, Gantt, calendar)",
-      "Resource allocation & time tracking",
-      "Client records & file management",
-      "Activity feed & email notifications",
+      "Compliance engine with audit trails",
+      "MTD / HIPAA / GDPR support",
+      "Unified operational + financial dashboards",
     ],
-    differentiators: [
-      "Automated workflow triggers",
-      "Milestone & SLA tracking",
-      "Client portals with approval workflows",
-    ],
-    benefit: "Manage every project from kickoff to close",
+    benefit: "Audit-ready",
   },
   {
-    number: "B",
-    title: "Performance Intelligence",
+    title: "Construction",
     description:
-      "Track quality, capture client feedback, and stay compliant — with AI-powered analysis and actionable dashboards that surface issues before they escalate.",
+      "Connect field teams to office systems in real time, with no-code workflow automation.",
     highlights: [
-      "Quality scorecards & issue flagging",
-      "Client feedback logs & sentiment tagging",
-      "Compliance rule engine (HIPAA, GDPR, ISO)",
-      "Team performance dashboards",
+      "Field-to-office connectivity, real time",
+      "No-code workflow automation",
+      "Universal integration layer (50+ tools)",
     ],
-    differentiators: [
-      "AI-powered sentiment & speech analytics",
-      "Automated coaching & training alerts",
-      "Trend analysis & benchmarking",
-    ],
-    benefit: "Surface quality issues before they escalate",
+    benefit: "Real-time field ops",
   },
   {
-    number: "C",
-    title: "Smart Procurement",
+    title: "Logistics",
     description:
-      "Streamline quoting, purchasing, and vendor management — from catalog upload to purchase order, with real-time tracking and budget controls.",
+      "Unified dashboards combining operational and financial data, plus SaaS management to trim unused subscriptions.",
     highlights: [
-      "Vendor catalog & quote builder",
-      "Approval workflows & purchase orders",
-      "Order tracking & delivery status",
-      "Renewal management & contract storage",
+      "Unified operational + financial dashboards",
+      "Universal integration layer",
+      "SaaS management module",
     ],
-    differentiators: [
-      "Multi-vendor price comparison",
-      "Real-time vendor API connections",
-      "Budget & inventory integration",
-    ],
-    benefit: "Close quotes faster, control spend in real time",
+    benefit: "Cross-system visibility",
   },
 ];
 
 export const pricing = [
   {
     service: "OmniServe",
-    model: "Per user / month",
+    model: "Per user / month (UK pricing)",
     rate: "£99 – £599",
-    rateNote: "Rate varies by modules selected and team size — contact us for a tailored quote.",
+    rateNote: "Rate varies by modules and team size — contact us for a tailored quote.",
     highlight: true,
   },
 ];
@@ -132,88 +116,60 @@ export const discounts = [
   "Bundle: Add OmniServe to any 1404 BPO service for 15% off both",
 ];
 
-export const certifications = ["SOC 2 Type II", "GDPR", "HIPAA", "ISO 27001"];
-
-export const pricingIncludes = [
-  "Module A: Workflow Orchestration",
-  "Module B: Performance Intelligence",
-  "Module C: Smart Procurement",
-  "Unified Executive Dashboard",
-  "iOS & Android mobile apps",
-  "Integrations hub (Slack, Teams, Salesforce & more)",
-  "SSO, RBAC & enterprise security",
-  "SOC 2 Type II / GDPR / HIPAA compliance",
+export const certifications = [
+  { label: "HIPAA Compliant", color: "teal" },
+  { label: "GDPR Compliant", color: "blue" },
+  { label: "ISO 27001", color: "amber" },
+  { label: "SOC 2 Type II", color: "violet" },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "OmniServe completely changed how we manage our operations — no more juggling five different dashboards. Everything from compliance to project tracking now lives in one place.",
-    author: "Martin",
-    role: "CEO, Reliance Health UK",
-  },
-  {
-    quote:
-      "The procurement module alone saved us 12 hours a week in admin. Having quotes, approvals, and purchase orders in one workflow was a game-changer for our ops team.",
-    author: "Sarah K.",
-    role: "Operations Director, BPO Solutions Ltd",
-  },
-  {
-    quote:
-      "We passed our first HIPAA audit without a single remediation item. OmniServe's compliance engine flagged every gap before the auditors even arrived.",
-    author: "James O.",
-    role: "Compliance Manager, CareFirst UK",
-  },
+export const pricingIncludes = [
+  "Universal integration layer (50+ tools)",
+  "No-code workflow automation",
+  "Unified operational + financial dashboards",
+  "SaaS management module",
+  "Compliance engine with audit trails",
+  "MTD / HIPAA / GDPR support",
+  "Industry modules (Construction, Logistics, Healthcare)",
+  "Audit-ready compliance reporting",
 ];
 
 export const caseStudies = [
   {
     client: "Healthcare Provider",
-    location: "UK",
-    challenge: "GDPR compliance gaps and manual reporting spread across disconnected systems",
+    location: "United Kingdom",
+    challenge: "GDPR compliance gaps.",
     impact: [
       "70% reduction in compliance reporting time",
-      "Zero non-compliance flags in first HIPAA audit",
-    ],
-  },
-  {
-    client: "Business Process Outsourcer",
-    location: "Nigeria",
-    challenge: "Project delivery delays and no real-time visibility into team performance across 200+ staff",
-    impact: [
-      "40% improvement in on-time project delivery",
-      "Client satisfaction scores up 28% in 3 months",
-    ],
-  },
-  {
-    client: "Professional Services Firm",
-    location: "U.S.",
-    challenge: "Fragmented vendor management and missing approval controls led to spiralling procurement spend",
-    impact: [
-      "£180k annual savings from vendor consolidation",
-      "Approval cycle cut from 9 days to under 24 hours",
+      "Zero non-compliance flags in HIPAA audit",
     ],
   },
 ];
 
-export const whyChoose = [
-  { stat: "3-in-1", label: "Workflow, performance & procurement in one platform" },
-  { stat: "Unified", label: "Single dashboard across all modules and teams" },
-  { stat: "AI-First", label: "Quality analysis and coaching intelligence built in" },
-  { stat: "iOS & Android", label: "Native mobile apps for field and remote teams" },
-  { stat: "API-first", label: "Pre-built integrations and a public API" },
-  { stat: "SOC 2", label: "GDPR & HIPAA compliance built in" },
-  { stat: "White-label", label: "Brand the platform as your own" },
+const offices = [
+  {
+    label: "Global HQ",
+    tag: "UK",
+    address: "Suite 5711 Unit 3A, 34–35 Hatton Garden, Holborn, London EC1N 8DX",
+    phone: "+44 7449 723948",
+  },
+  {
+    label: "U.S. Office",
+    tag: "U.S.",
+    address: "Office 85 Suite 101-B, 254 Chapman Road, Newark, Delaware 19702",
+    phone: "+1 (817) 601-6860",
+  },
+  {
+    label: "Nigeria Office",
+    tag: "NG",
+    address: "10, Adeleke Street, Ikeja, Lagos, Nigeria",
+    phone: "+234 707 920 7638",
+  },
 ];
 
 export const contact = {
-  website: "1404technologies.com",
+  website: "www.1404technologies.com",
   email: "info@1404technologies.com",
-  phones: ["+1 (817) 601-6860", "+44 7449 723948"],
-  offices: [
-    {
-      label: "1404 Technologies",
-      address: "Suite 5711, 34–35 Hatton Garden, London EC1N 8DX",
-    },
-  ],
+  offices,
+  phones: offices.map((o) => ({ tag: o.tag, number: o.phone })),
 };
