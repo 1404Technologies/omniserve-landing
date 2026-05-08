@@ -14,7 +14,7 @@ function FeaturedCase({ client, location, challenge, impact }) {
 
   return (
     <article className="card p-0 overflow-hidden grid grid-cols-1 lg:grid-cols-[1.1fr_1fr]">
-      <div className="p-10 lg:p-12 flex flex-col gap-7 border-b lg:border-b-0 lg:border-r border-line">
+      <div className="p-7 sm:p-10 lg:p-12 flex flex-col gap-6 sm:gap-7 border-b lg:border-b-0 lg:border-r border-line">
         <div className="eyebrow text-blue-700">Featured client</div>
         <div>
           <div className="text-[15px] font-semibold text-ink">{client}</div>
@@ -28,7 +28,7 @@ function FeaturedCase({ client, location, challenge, impact }) {
         </div>
       </div>
 
-      <div className="bg-[#F8FAFF] p-10 lg:p-12 flex flex-col gap-6">
+      <div className="bg-[#F8FAFF] p-7 sm:p-10 lg:p-12 flex flex-col gap-6">
         <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-blue-700">
           Impact with OmniServe
         </div>

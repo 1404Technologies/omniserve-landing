@@ -59,7 +59,7 @@
 
 @layer components {
   .section {
-    @apply py-24 px-6;
+    @apply py-16 sm:py-20 lg:py-24 px-4 sm:px-6;
   }
 
   .section--dark {
@@ -71,7 +71,7 @@
   }
 
   .section__header {
-    @apply text-center mb-16 max-w-[760px] mx-auto;
+    @apply text-center mb-12 sm:mb-16 max-w-[760px] mx-auto;
   }
 
   .section__tag {

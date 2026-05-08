@@ -125,8 +125,8 @@ export default function Contact({ website, email, offices }) {
   }
 
   return (
-    <section id="contact" className="bg-navy text-white py-24 px-6">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-16 items-start">
+    <section id="contact" className="bg-navy text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 sm:gap-12 lg:gap-16 items-start">
         <div>
           <h2 className="text-[clamp(28px,3.6vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] mb-4">
             Ready to <span className="text-teal-300">transform</span> your operations?
@@ -157,7 +157,7 @@ export default function Contact({ website, email, offices }) {
           </div>
         </div>
 
-        <div className="bg-white rounded-[14px] shadow-[0_24px_60px_rgba(0,0,0,0.35)] p-8 lg:p-10 text-ink">
+        <div className="bg-white rounded-[14px] shadow-[0_24px_60px_rgba(0,0,0,0.35)] p-6 sm:p-8 lg:p-10 text-ink">
           {status === "success" ? (
             <div className="text-center py-8">
               <div className="w-14 h-14 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-4">

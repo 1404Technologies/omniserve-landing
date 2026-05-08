@@ -57,14 +57,14 @@ function FeatureIcon({ name, large }) {
 
 function HeroFeatureCard({ iconName, title, description }) {
   return (
-    <article className="card p-9 flex flex-col gap-5 lg:row-span-2 relative overflow-hidden">
+    <article className="card p-7 sm:p-9 flex flex-col gap-5 sm:col-span-2 lg:col-span-1 lg:row-span-2 relative overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute -right-20 -top-20 w-[280px] h-[280px] rounded-full pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 70%)" }}
       />
       <FeatureIcon name={iconName} large />
-      <h3 className="text-[22px] font-bold text-ink leading-[1.2] tracking-[-0.01em]">{title}</h3>
+      <h3 className="text-[20px] sm:text-[22px] font-bold text-ink leading-[1.2] tracking-[-0.01em]">{title}</h3>
       <p className="text-[15px] text-ink-soft leading-[1.65]">{description}</p>
     </article>
   );
@@ -72,7 +72,7 @@ function HeroFeatureCard({ iconName, title, description }) {
 
 function CompactFeatureCard({ iconName, title, description }) {
   return (
-    <article className="card p-7 flex gap-5 items-start hover:shadow-card-lift hover:-translate-y-px transition-all duration-200">
+    <article className="card p-6 sm:p-7 flex gap-4 sm:gap-5 items-start hover:shadow-card-lift hover:-translate-y-px transition-all duration-200">
       <FeatureIcon name={iconName} />
       <div>
         <h3 className="text-[15px] font-semibold text-ink mb-2">{title}</h3>
@@ -93,7 +93,7 @@ export default function Features({ items }) {
           OmniServe replaces disconnected tools with a single source of truth.
         </p>
       </div>
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5 auto-rows-[1fr]">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:auto-rows-[1fr]">
         <HeroFeatureCard {...hero} />
         {rest.map((feature) => (
           <CompactFeatureCard key={feature.title} {...feature} />

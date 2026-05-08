@@ -11,7 +11,7 @@ function Column({ title, children }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#162050] text-white border-t border-white/[0.08] pt-14 pb-8 px-6">
+    <footer className="bg-[#162050] text-white border-t border-white/[0.08] pt-12 sm:pt-14 pb-8 px-4 sm:px-6">
       <div className="max-w-[1200px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10 lg:gap-12">
           <div>

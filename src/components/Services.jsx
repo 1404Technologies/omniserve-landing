@@ -24,7 +24,7 @@ const INDUSTRY_ICON = {
 
 function IndustryCard({ title, description, highlights, benefit }) {
   return (
-    <article className="relative bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/[0.10] rounded-[14px] p-8 flex flex-col gap-6 transition-colors duration-200 hover:border-teal-400/[0.40]">
+    <article className="relative bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/[0.10] rounded-[14px] p-6 sm:p-8 flex flex-col gap-5 sm:gap-6 transition-colors duration-200 hover:border-teal-400/[0.40]">
       <div
         aria-hidden="true"
         className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-300/60 to-transparent"
@@ -79,7 +79,7 @@ export default function Services({ items }) {
           OmniServe ships with industry modules that bake compliance into the workflow and connect field teams to office systems in real time.
         </p>
       </div>
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 relative">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 relative">
         {items.map((item) => (
           <IndustryCard key={item.title} {...item} />
         ))}

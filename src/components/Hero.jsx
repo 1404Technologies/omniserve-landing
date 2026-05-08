@@ -139,7 +139,7 @@ function HubVisual() {
 
 export default function Hero({ tag, headline, headlineAccent, subheadline, cta, ctaSecondary, certifications }) {
   return (
-    <section className="bg-navy text-white relative overflow-hidden pt-[120px] pb-20 px-6">
+    <section className="bg-navy text-white relative overflow-hidden pt-[100px] sm:pt-[120px] pb-16 sm:pb-20 px-4 sm:px-6">
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
@@ -162,20 +162,20 @@ export default function Hero({ tag, headline, headlineAccent, subheadline, cta, 
         }}
       />
 
-      <div className="max-w-[1240px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] gap-12 lg:gap-16 items-center relative">
+      <div className="max-w-[1240px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] gap-10 sm:gap-12 lg:gap-16 items-center relative">
         <div>
-          <div className="inline-flex items-center gap-[10px] text-[11px] font-semibold tracking-[0.14em] uppercase text-teal-300 bg-teal-400/[0.10] border border-teal-400/[0.30] py-[7px] pl-[10px] pr-4 rounded-full mb-7">
+          <div className="inline-flex items-center gap-[10px] text-[11px] font-semibold tracking-[0.14em] uppercase text-teal-300 bg-teal-400/[0.10] border border-teal-400/[0.30] py-[7px] pl-[10px] pr-4 rounded-full mb-6 sm:mb-7">
             <span className="w-[6px] h-[6px] rounded-full bg-teal-300" />
             {tag}
           </div>
-          <h1 className="text-[clamp(34px,4.4vw,52px)] font-bold leading-[1.08] tracking-[-0.02em] mb-6">
+          <h1 className="text-[clamp(28px,5.6vw,52px)] font-bold leading-[1.1] tracking-[-0.02em] mb-5 sm:mb-6">
             {headline}
             <br />
             <span className="text-teal-300 font-semibold">{headlineAccent}</span>
           </h1>
-          <p className="text-[16px] text-blue-200 leading-[1.7] mb-8 max-w-[520px]">{subheadline}</p>
+          <p className="text-[15px] sm:text-[16px] text-blue-200 leading-[1.7] mb-7 sm:mb-8 max-w-[520px]">{subheadline}</p>
 
-          <div id="compliance" className="flex flex-wrap gap-2 mb-8 scroll-mt-24">
+          <div id="compliance" className="flex flex-wrap gap-2 mb-7 sm:mb-8 scroll-mt-24">
             {certifications.map(({ label, color }) => (
               <CertPill key={label} label={label} color={color} />
             ))}

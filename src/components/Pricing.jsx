@@ -19,8 +19,8 @@ export default function Pricing({ rows, discounts, includes }) {
         </p>
       </div>
 
-      <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 items-stretch">
-        <div className="card p-10 lg:p-12 flex flex-col gap-7 relative overflow-hidden">
+      <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-5 sm:gap-6 items-stretch">
+        <div className="card p-7 sm:p-10 lg:p-12 flex flex-col gap-6 sm:gap-7 relative overflow-hidden">
           <div
             aria-hidden="true"
             className="absolute -right-32 -top-32 w-[420px] h-[420px] rounded-full pointer-events-none"
@@ -69,7 +69,7 @@ export default function Pricing({ rows, discounts, includes }) {
           </a>
         </div>
 
-        <div className="bg-[#F5F8FF] border border-line rounded-[12px] p-8 lg:p-10 flex flex-col gap-6">
+        <div className="bg-[#F5F8FF] border border-line rounded-[12px] p-6 sm:p-8 lg:p-10 flex flex-col gap-5 sm:gap-6">
           <div>
             <span className="eyebrow text-blue-700">Discounts available</span>
             <p className="text-[18px] font-bold text-ink mt-3 leading-snug">Three ways to bring it down.</p>
