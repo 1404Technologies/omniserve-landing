@@ -31,21 +31,22 @@ export default function TextReveal({
       }}
     >
       {words.map((word, i) => (
-        <span
-          key={`${word}-${i}`}
-          className={`inline-block overflow-hidden align-bottom ${wordClassName}`}
-          style={{ paddingBottom: "0.12em", marginBottom: "-0.12em" }}
-        >
-          <motion.span
-            className="inline-block"
-            variants={{
-              hidden: { y: "110%" },
-              visible: { y: "0%", transition: { duration: duration.slow, ease: ease.out } },
-            }}
+        <span key={`${word}-${i}`} className="inline">
+          <span
+            className={`inline-block overflow-hidden align-bottom ${wordClassName}`}
+            style={{ paddingBottom: "0.12em", marginBottom: "-0.12em" }}
           >
-            {word}
-            {i < words.length - 1 ? " " : ""}
-          </motion.span>
+            <motion.span
+              className="inline-block"
+              variants={{
+                hidden: { y: "110%" },
+                visible: { y: "0%", transition: { duration: duration.slow, ease: ease.out } },
+              }}
+            >
+              {word}
+            </motion.span>
+          </span>
+          {i < words.length - 1 ? " " : ""}
         </span>
       ))}
     </Component>
