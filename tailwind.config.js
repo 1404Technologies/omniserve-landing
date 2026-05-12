@@ -8,6 +8,7 @@ export default {
           DEFAULT: '#1E2A5E',
           2: '#162050',
           3: '#253470',
+          deep: '#0F1A40',
         },
         ink: {
           DEFAULT: '#0F1B3A',
@@ -17,6 +18,10 @@ export default {
         line: {
           DEFAULT: '#E4ECF7',
           strong: '#CFDBED',
+        },
+        surface: {
+          tint: '#F5F8FF',
+          tint2: '#F8FAFF',
         },
       },
       fontFamily: {

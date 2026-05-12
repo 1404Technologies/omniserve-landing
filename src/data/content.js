@@ -1,6 +1,6 @@
 export const nav = {
   brand: "OmniServe",
-  links: ["Features", "Industries", "Pricing", "Compliance", "Contact"],
+  links: ["Features", "Industries", "Pricing", "Contact"],
 };
 
 export const parent = {

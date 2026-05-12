@@ -1,19 +1,12 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../lib/firebase";
-
-function Icon({ d, className = "w-4 h-4" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d={d} />
-    </svg>
-  );
-}
-
-const ICON_PIN = "M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z";
-const ICON_PHONE = "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z";
-const ICON_MAIL = "M3 8l7.89 5.26a2 2 0 002.22 0L21 8 M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z";
-const ICON_GLOBE = "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9";
+import Icon from "./Icon";
+import Reveal from "./ui/Reveal";
+import TextReveal from "./ui/TextReveal";
+import MagneticButton from "./ui/MagneticButton";
+import { ease, duration } from "../lib/motion";
 
 const serviceOptions = [
   "OmniServe — Full Platform",
@@ -61,13 +54,13 @@ function OfficeCard({ label, tag, address, phone }) {
       </div>
       <div className="flex items-start gap-[10px] text-[13px] text-blue-100 leading-snug">
         <span className="text-teal-300 shrink-0 mt-[2px]">
-          <Icon d={ICON_PIN} className="w-[14px] h-[14px]" />
+          <Icon name="pin" className="w-[14px] h-[14px]" />
         </span>
         <span>{address}</span>
       </div>
       <div className="flex items-center gap-[10px] text-[13px] text-blue-100">
         <span className="text-teal-300 shrink-0">
-          <Icon d={ICON_PHONE} className="w-[14px] h-[14px]" />
+          <Icon name="phone" className="w-[14px] h-[14px]" />
         </span>
         <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:text-white">{phone}</a>
       </div>
@@ -127,9 +120,11 @@ export default function Contact({ website, email, offices }) {
   return (
     <section id="contact" className="bg-navy text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 sm:gap-12 lg:gap-16 items-start">
-        <div>
+        <Reveal>
           <h2 className="text-[clamp(28px,3.6vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] mb-4">
-            Ready to <span className="text-teal-300">transform</span> your operations?
+            <TextReveal text="Ready to" />{" "}
+            <TextReveal text="transform" as="span" className="text-teal-300" delayChildren={0.12} />{" "}
+            <TextReveal text="your operations?" delayChildren={0.24} />
           </h2>
           <p className="text-[15px] text-blue-200 leading-[1.65] mb-8 max-w-[480px]">
             Talk to our team today. We'll match you with the right modules and pricing for your business size and industry.
@@ -144,26 +139,30 @@ export default function Contact({ website, email, offices }) {
           <div className="flex flex-col gap-[10px] pt-4">
             <a href={`mailto:${email}`} className="flex items-center gap-3 text-[13px] text-blue-100 hover:text-white transition-colors">
               <span className="text-teal-300 shrink-0">
-                <Icon d={ICON_MAIL} className="w-[14px] h-[14px]" />
+                <Icon name="mail" className="w-[14px] h-[14px]" />
               </span>
               <span className="font-medium">{email}</span>
             </a>
             <div className="flex items-center gap-3 text-[13px] text-blue-100">
               <span className="text-teal-300 shrink-0">
-                <Icon d={ICON_GLOBE} className="w-[14px] h-[14px]" />
+                <Icon name="globe" className="w-[14px] h-[14px]" />
               </span>
               <span className="font-medium">{website}</span>
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="bg-white rounded-[14px] shadow-[0_24px_60px_rgba(0,0,0,0.35)] p-6 sm:p-8 lg:p-10 text-ink">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10% 0px" }}
+          transition={{ duration: duration.base, ease: ease.out, delay: 0.1 }}
+          className="bg-white rounded-[14px] shadow-[0_24px_60px_rgba(0,0,0,0.35)] p-6 sm:p-8 lg:p-10 text-ink"
+        >
           {status === "success" ? (
             <div className="text-center py-8">
               <div className="w-14 h-14 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
+                <Icon name="check" className="w-6 h-6" />
               </div>
               <div className="text-[20px] font-bold text-ink mb-2">Message received</div>
               <div className="text-[14px] text-ink-soft mb-8">A member of our team will be in touch within one business day.</div>
@@ -254,20 +253,27 @@ export default function Contact({ website, email, offices }) {
                     Something went wrong — please try again or email us directly.
                   </div>
                 )}
-                <button
+                <MagneticButton
+                  as="button"
                   type="submit"
                   disabled={status === "submitting"}
                   className="btn btn--primary w-full justify-center mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                  strength={8}
                 >
-                  {status === "submitting" ? "Sending…" : "Send message →"}
-                </button>
+                  {status === "submitting" ? "Sending…" : (
+                    <>
+                      <span>Send message</span>
+                      <span aria-hidden>→</span>
+                    </>
+                  )}
+                </MagneticButton>
                 <div className="text-[11px] text-ink-mute leading-snug text-center mt-1">
                   By submitting you agree to our <a href={`mailto:${email}`} className="underline">Privacy Policy</a>. We never share your data with third parties.
                 </div>
               </form>
             </>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

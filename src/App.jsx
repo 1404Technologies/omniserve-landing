@@ -1,19 +1,18 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
-import IntegrationsStrip from "./components/IntegrationsStrip";
 import Features from "./components/Features";
 import Services from "./components/Services";
 import CaseStudies from "./components/CaseStudies";
 import Pricing from "./components/Pricing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollProgress from "./components/ui/ScrollProgress";
 
 import {
   nav,
   hero,
   stats,
-  integrations,
   features,
   industries,
   pricing,
@@ -31,7 +30,6 @@ export default function App() {
       <main>
         <Hero {...hero} certifications={certifications} />
         <Stats items={stats} />
-        <IntegrationsStrip caption={integrations.caption} items={integrations.items} />
         <Features items={features} />
         <Services items={industries} />
         <CaseStudies items={caseStudies} />
@@ -39,6 +37,7 @@ export default function App() {
         <Contact website={contact.website} email={contact.email} offices={contact.offices} />
       </main>
       <Footer />
+      <ScrollProgress />
     </>
   );
 }
