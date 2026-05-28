@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "../lib/firebase";
+import { submitContactToHubSpot } from "../lib/hubspot";
 import Icon from "./Icon";
 import Reveal from "./ui/Reveal";
 import TextReveal from "./ui/TextReveal";
@@ -100,10 +99,7 @@ export default function Contact({ website, email, offices }) {
 
     setStatus("submitting");
     try {
-      await addDoc(collection(db, "omniserve_earlyaccess_requests"), {
-        ...form,
-        submittedAt: serverTimestamp(),
-      });
+      await submitContactToHubSpot(form);
       setStatus("success");
     } catch {
       setStatus("error");

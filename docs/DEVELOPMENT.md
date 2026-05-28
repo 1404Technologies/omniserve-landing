@@ -9,7 +9,7 @@
 | UI | React | 18.x |
 | Language | JavaScript (JSX) | ES2022 |
 | Styling | Tailwind CSS | 3.x |
-| Database | Firebase Firestore | 11.x |
+| Contact form | HubSpot Forms API | v3 |
 | Analytics | Vercel Analytics + Speed Insights | — |
 | Linter | ESLint | 10.x |
 
@@ -36,20 +36,9 @@ npm install
 
 ---
 
-## Environment variables
+## Contact form
 
-Create a `.env` file at the project root (never commit it):
-
-```
-VITE_FIREBASE_API_KEY=
-VITE_FIREBASE_AUTH_DOMAIN=
-VITE_FIREBASE_PROJECT_ID=
-VITE_FIREBASE_STORAGE_BUCKET=
-VITE_FIREBASE_MESSAGING_SENDER_ID=
-VITE_FIREBASE_APP_ID=
-```
-
-Contact form submissions are written to the `contact_submissions` Firestore collection.
+Submissions are sent directly to HubSpot via the public Forms API — no environment variables, no backend. The portal ID, form GUID and region are hardcoded in [src/lib/hubspot.js](../src/lib/hubspot.js). The `service` field is mapped to the HubSpot property `module_of_interest`.
 
 ---
 
@@ -75,7 +64,8 @@ omniserve-landing/
 │   ├── data/
 │   │   └── content.js  ← all page copy as plain JS objects/arrays
 │   ├── lib/
-│   │   └── firebase.js ← Firestore client (reads from env vars)
+│   │   ├── hubspot.js  ← HubSpot Forms API submission
+│   │   └── motion.js   ← shared easing/duration tokens + variants
 │   ├── App.jsx         ← composes all sections in order, nothing else
 │   ├── index.css       ← Tailwind imports + shared component classes
 │   └── main.jsx        ← React root mount + Vercel Analytics
